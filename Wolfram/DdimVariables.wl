@@ -51,7 +51,7 @@ ToLabelBox[a_] :=
         InterpretationFunction -> (RowBox[{#}]&)]
 
 
-(* ::Subsubsection::Closed:: *)
+(* ::Subsubsection:: *)
 (*Properties*)
 
 
@@ -103,7 +103,7 @@ Metric[\[Mu]_,\[Mu]_] := DD;
 
 Metric /: Metric[\[Mu]_,\[Nu]_] Metric[\[Rho]_,\[Nu]_] := Metric[\[Mu],\[Rho]]
 Metric /: Metric[\[Mu]_,\[Nu]_] Metric[\[Nu]_,\[Rho]_] := Metric[\[Mu],\[Rho]]
-Metric /: Metric[\[Mu]_,\[Nu]_] Metric[\[Mu]_,\[Rho]_] := Metric[\[Nu],\[Rho]]
+Metric /: Metric[\[Nu]_,\[Mu]_] Metric[\[Nu]_,\[Rho]_] := Metric[\[Mu],\[Rho]]
 
 Metric /: Metric[\[Mu]_,\[Nu]_] Momentum[a_][\[Nu]_] := Momentum[a][\[Mu]]
 Metric /: Metric[\[Mu]_,\[Nu]_] Momentum[a_][\[Mu]_] := Momentum[a][\[Nu]]
