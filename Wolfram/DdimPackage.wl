@@ -3,7 +3,7 @@
 BeginPackage["DdimPackage`", {"YoungSymm`","DdimVariables`"}]
 
 
-(* ::Section:: *)
+(* ::Section::Closed:: *)
 (*Messages*)
 
 
@@ -239,7 +239,7 @@ ToTrace[exp_] :=
 
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*From Scalar Products To Indices*)
 
 
@@ -433,7 +433,7 @@ FixedScalarProducts[rules__?(MatchQ[Head[#],Rule]&)]:=
 	)
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*DDerivative*)
 
 
@@ -444,7 +444,7 @@ FixedScalarProducts[rules__?(MatchQ[Head[#],Rule]&)]:=
 StripoffIndex[p_]:=p[[;;1]]
 
 
-(* ::Subsubsection::Closed:: *)
+(* ::Subsubsection:: *)
 (*DDerivative*)
 
 
@@ -455,6 +455,8 @@ DDerivative[EpsilonPol[x_,a_],EpsilonPol[x_,b_]]:=Metric[a,b]
 DDerivative[sum_Plus,p_?(MatchQ[#,Momentum[_,_]|EpsilonPol[_,_]]&)]:=Plus@@(DDerivative[#,p]&/@List@@sum)
 DDerivative[Times[a_,b_],p_?(MatchQ[#,Momentum[_,_]|EpsilonPol[_,_]]&)]:=DDerivative[a,p]*Times[b]+a*DDerivative[b,p]
 DDerivative[Power[a_,b_],p_?(MatchQ[#,Momentum[_,_]|EpsilonPol[_,_]]&)]:=b*Power[a,b-1]*DDerivative[a,p]
+DDerivative[Exp[a_],p_?(MatchQ[#,Momentum[_,_]|EpsilonPol[_,_]]&)]:=DDerivative[a,p]Exp[a]
+DDerivative[Log[a_],p_?(MatchQ[#,Momentum[_,_]|EpsilonPol[_,_]]&)]:=DDerivative[a,p] 1/a
 DDerivative[exp_, p_ ? (MatchQ[#, Momentum[_,_]  | EpsilonPol[_,_]]&)]:=0
 (*DDerivative[exp_,,p_?(!MatchQ[#,Momentum[_,_]|EpsilonPol[_,_]]&)] define an error message*)
 
