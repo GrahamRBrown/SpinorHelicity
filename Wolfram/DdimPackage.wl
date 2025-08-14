@@ -171,7 +171,7 @@ Relabel[OptionsPattern[]][exp_, n_:0] :=
 
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*ToTrace*)
 
 
@@ -460,7 +460,7 @@ DDerivative[Times[a_,b_],p_?(MatchQ[#,Momentum[_,_]|EpsilonPol[_,_]]&)]:=DDeriva
 DDerivative[Power[a_,b_],p_?(MatchQ[#,Momentum[_,_]|EpsilonPol[_,_]]&)]:=b*Power[a,b-1]*DDerivative[a,p]+Log[a]*Power[a,b]*DDerivative[b,p]
 DDerivative[Exp[a_],p_?(MatchQ[#,Momentum[_,_]|EpsilonPol[_,_]]&)]:=DDerivative[a,p]Exp[a]
 DDerivative[Log[a_],p_?(MatchQ[#,Momentum[_,_]|EpsilonPol[_,_]]&)]:=DDerivative[a,p] 1/a
-DDerivative[exp_, p_ ? (MatchQ[#, Momentum[_,_]  | EpsilonPol[_,_]]&)]:=0
+(*DDerivative[exp_, p_ ? (MatchQ[#, Momentum[_,_]  | EpsilonPol[_,_]]&)]:=0*)
 (*DDerivative[exp_,,p_?(!MatchQ[#,Momentum[_,_]|EpsilonPol[_,_]]&)] define an error message*)
 
 
